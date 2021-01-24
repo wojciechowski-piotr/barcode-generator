@@ -11,7 +11,7 @@ WIDTH = 200
 root = tk.Tk()
 root.title('Barcode generator')
 
-documents_path = 'E:\\pythons\\barcodes\\documents'
+documents_path = os.path.dirname('documents/')
 
 dates = get_dates()
 

@@ -17,9 +17,9 @@ def get_path(path):
 
 
 def generate_barcodes(eans):
-    for el in eans:
+    for i, el in enumerate(eans):
         ean = barcode.get('ean13', str(el), writer=ImageWriter())
-        ean.save(f'images\\{el}_{timestamp}', {
+        ean.save(f'./images\\{i}_{el}_{timestamp}', {
             'module_height': 4.5,
             'module_width': 0.12,
             'text_distance': 0.25,
@@ -29,7 +29,7 @@ def generate_barcodes(eans):
 
 
 def get_img_paths():
-    basepath = 'images/'
+    basepath = './images/'
     images = []
 
     for image in os.listdir(basepath):
@@ -49,9 +49,9 @@ def word_document(date):
     print(f'Input has {len(images)} items')
 
     for img in images:
-        document.add_picture(f'images/{img}')
+        document.add_picture(f'./images/{img}')
 
-    new_file_path = f'documents/barcodes_from_{date}_{timestamp}.docx'
+    new_file_path = f'./documents/barcodes_from_{date}_{timestamp}.docx'
 
     document.save(new_file_path)
     print('File successfully created!')
