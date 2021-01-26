@@ -10,12 +10,6 @@ from docx import Document
 timestamp = calendar.timegm(time.gmtime())
 
 
-def get_path(path):
-    path = path.replace("\\", "\\\\")
-    path = path.replace("\"", "")
-    return path
-
-
 def generate_barcodes(eans):
     for i, el in enumerate(eans):
         ean = barcode.get('ean13', str(el), writer=ImageWriter())
